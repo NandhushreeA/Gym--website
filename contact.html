@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitLife Gym - Contact</title>
+  <meta name="description" content="Contact FitLife Gym or request a membership.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="images/logo.png" alt="FitLife Gym Logo" class="logo-img">
+          <span>FitLife <span class="accent">Gym</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="trainers.html" class="nav-link">Trainers</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Start Your <span class="accent">Journey</span></h1>
+        <p class="hero-subtitle">
+          Fill out the form and our team will contact you to set up your membership.
+        </p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section contact">
+      <div class="container contact-container">
+        <div class="contact-info">
+          <h2 class="section-title">Contact <span class="accent">Us</span></h2>
+          <p class="section-subtitle">
+            Have questions about our plans, trainers, or facilities? Just send us a message.
+          </p>
+          <p>
+            We usually respond within one business day. You can also visit us at our gym during staffed hours.
+          </p>
+
+          <div class="contact-details">
+            <p><strong>Location:</strong> 123 Fitness Street, Your City</p>
+            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+            <p><strong>Email:</strong> hello@fitlifegym.com</p>
+          </div>
+        </div>
+
+        <!-- Same form, now on its own page -->
+        <form class="contact-form" action="#" method="post">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="plan">Preferred Plan</label>
+            <select id="plan" name="plan" required>
+              <option value="">Select a plan</option>
+              <option value="basic">Basic - $19/month</option>
+              <option value="standard">Standard - $39/month</option>
+              <option value="premium">Premium - $69/month</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Goal / Message (optional)</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Tell us about your fitness goals..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            Request Membership
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <span>FitLife <span class="accent">Gym</span></span>
+        </a>
+        <p>Your body, your rules. Train with purpose and unlock your full potential.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#">Fb</a>
+          <a href="#">Ig</a>
+          <a href="#">Tw</a>
+          <a href="#">Yt</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 FitLife Gym. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

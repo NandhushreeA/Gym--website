@@ -1,0 +1,872 @@
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+
+/* Reset basic default margins & paddings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root variables for easy theme customization */
+:root {
+  --color-primary: #ff4b2b;
+  --color-primary-dark: #e43c1f;
+  --color-secondary: #111827;
+  --color-bg: #050816;
+  --color-light: #f9fafb;
+  --color-muted: #9ca3af;
+  --color-card-bg: #0b1120;
+  --color-border: #1f2937;
+
+  --font-main: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.6);
+  --radius-md: 0.75rem;
+  --radius-full: 999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+}
+
+/* Global body styles */
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-light);
+  line-height: 1.6;
+}
+
+/* Generic container to center content and limit width */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* General section spacing */
+.section {
+  padding: 5rem 0;
+}
+
+/* Section titles and subtitles */
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  font-size: 0.95rem;
+}
+
+/* Accent color utility */
+.accent {
+  color: var(--color-primary);
+}
+
+/* Basic button styles */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+/* Primary button (filled) */
+.btn-primary {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(248, 113, 113, 0.45);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ff3b1a, #ff2a5b);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(248, 113, 113, 0.6);
+}
+
+/* Outline button (transparent) */
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-light);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(248, 113, 113, 0.08);
+}
+
+/* =========================================================
+   NAVBAR & HEADER
+   ========================================================= */
+
+/* Header wraps the nav and hero */
+.header {
+  position: relative;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Sticky navigation bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.85)
+  );
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+/* Flex layout for logo and links */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.2rem;
+}
+
+/* Logo styles */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Optional logo image */
+.logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+/* Navigation links list */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+/* Individual link */
+.nav-link {
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Underline hover effect using pseudo-element */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  transition: width var(--transition-base);
+}
+
+/* Hover state for links */
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Special styling for Contact link in nav */
+.nav-cta {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(248, 113, 113, 0.55);
+  color: #fef2f2;
+  background-color: rgba(248, 113, 113, 0.08);
+}
+
+.nav-cta:hover {
+  background-color: rgba(248, 113, 113, 0.16);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 4.2rem); /* full screen minus navbar */
+  display: flex;
+  /* margin-top: 4.2rem; */
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 5rem 0;
+  color: #ffffff;
+  overflow: hidden;
+
+  /* Background image (full-screen) */
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.6)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQghoc4exqSHWjTAQvchw-jLWZoQE2gMnQ1Tg&s");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Extra dark overlay on top of background for better contrast */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 55%);
+  z-index: 0;
+}
+
+/* Content centered inside hero */
+.hero-content {
+  position: relative;
+  z-index: 1; /* ensure above overlay */
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Main hero heading */
+.hero-title {
+  font-size: clamp(2.4rem, 4vw + 1rem, 3.4rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Hero subtitle text */
+.hero-subtitle {
+  font-size: 0.98rem;
+  color: #e5e7eb;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about {
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(3, 7, 18, 1));
+}
+
+/* Two-column layout: image + text */
+.about-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* About image wrapper */
+.about-image img {
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* About text content */
+.about-content p {
+  font-size: 0.96rem;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+/* List of bullet points */
+.about-list {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.93rem;
+  color: #d1d5db;
+}
+
+/* Custom bullet using pseudo-element */
+.about-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   SERVICES SECTION
+   ========================================================= */
+
+.services {
+  background-color: #020617;
+}
+
+/* 4-column (on desktop) grid, responsive via media queries */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual service card */
+.service-card {
+  background: linear-gradient(to bottom right, #020617, #020617);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.7);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+              border-color var(--transition-base), background var(--transition-base);
+}
+
+/* Icon wrapper */
+.service-icon span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.9rem;
+  background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.3), rgba(248, 113, 113, 0.1));
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Title inside service card */
+.service-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Description text */
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Hover effect for cards */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px rgba(15, 23, 42, 0.95);
+  border-color: rgba(248, 113, 113, 0.6);
+  background: radial-gradient(circle at top left, #020617, #020617);
+}
+
+/* =========================================================
+   TRAINERS SECTION
+   ========================================================= */
+
+.trainers {
+  background: radial-gradient(circle at center, rgba(15, 23, 42, 1), #020617);
+}
+
+/* Grid layout for trainers */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual trainer card */
+.trainer-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+/* Circular image container */
+.trainer-image {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(248, 113, 113, 0.85);
+}
+
+/* Actual trainer image */
+.trainer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Trainer name */
+.trainer-card h3 {
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Trainer role text */
+.trainer-role {
+  font-size: 0.86rem;
+  color: var(--color-muted);
+}
+
+/* Hover effect */
+.trainer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 1);
+  border-color: rgba(248, 113, 113, 0.7);
+}
+
+/* =========================================================
+   PRICING SECTION
+   ========================================================= */
+
+.pricing {
+  background: radial-gradient(circle at top, rgba(30, 64, 175, 0.6), #020617);
+}
+
+/* Pricing cards grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Single pricing card */
+.pricing-card {
+  background-color: var(--color-card-bg);
+  border-radius: 1.4rem;
+  padding: 2.1rem 1.6rem 2.2rem 1.6rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Plan name */
+.pricing-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Price styles */
+.pricing-price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pricing-price span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-left: 0.25rem;
+}
+
+/* Feature list */
+.pricing-features {
+  list-style: none;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.pricing-features li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+/* Bullet icon using pseudo-element */
+.pricing-features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary);
+}
+
+/* Popular plan (highlighted card) */
+.pricing-card.popular {
+  border-color: rgba(248, 113, 113, 0.9);
+  box-shadow: 0 30px 80px rgba(248, 113, 113, 0.5);
+  transform: translateY(-6px);
+}
+
+/* Small badge above popular card */
+.pricing-card.popular .badge {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  background: rgba(248, 113, 113, 0.15);
+  color: #fecaca;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   CONTACT / FORM SECTION
+   ========================================================= */
+
+.contact {
+  background: radial-gradient(circle at bottom, rgba(8, 47, 73, 0.7), #020617);
+}
+
+/* Two-column layout: info + form */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Contact text block */
+.contact-info p {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+/* Info details list */
+.contact-details {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.contact-details p {
+  margin-bottom: 0.35rem;
+}
+
+/* Form wrapper */
+.contact-form {
+  background: rgba(15, 23, 42, 0.96);
+  padding: 1.8rem 1.6rem 2rem 1.6rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Single form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.9rem;
+}
+
+/* Labels */
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+/* Input, select, textarea base styles */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background-color: #020617;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  padding: 0.7rem 0.8rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  outline: none;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+/* Placeholder color */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+/* Focus state for inputs */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(248, 113, 113, 0.9);
+  box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.5);
+}
+
+/* Make textarea non-resizable for consistent design */
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit button inside form */
+.form-submit {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background-color: #020617;
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+/* Footer main area */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 2.5rem;
+  padding: 2.6rem 0 1.6rem 0;
+}
+
+/* Footer logo text */
+.footer-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #f9fafb;
+}
+
+/* Footer paragraph */
+.footer-brand p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* Footer headings */
+.footer-links h4,
+.footer-social h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Footer links */
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Social icons simple style */
+.social-links {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social-links a {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+/* Hover state for social icons */
+.social-links a:hover {
+  background-color: rgba(248, 113, 113, 0.18);
+  border-color: rgba(248, 113, 113, 0.9);
+  color: #fef2f2;
+  transform: translateY(-1px);
+}
+
+/* Footer bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+  padding: 0.8rem 0 1.2rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================= */
+
+/* Medium screens (tablets, small laptops) */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1; /* show image above text on smaller screens */
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trainers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    margin-inline: auto;
+  }
+
+  .hero .btn-primary {
+    margin-inline: auto;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .nav-container {
+    height: auto;
+    padding-block: 0.7rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+    column-gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trainers-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.popular {
+    transform: none; /* remove lift effect on small screens for consistency */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    order: 1;
+  }
+
+  .footer-links {
+    order: 2;
+  }
+
+  .footer-social {
+    order: 3;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .trainer-card {
+    padding-inline: 1.1rem;
+  }
+
+  .contact-form {
+    padding-inline: 1.2rem;
+  }
+
+  .footer-container {
+    padding-top: 2rem;
+  }
+}
